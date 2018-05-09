@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>Lab9</title>
+        <script>
+            tasks_url = location.protocol+"//"+location.host + "/input/answer.json"
+            
+            function send_query() {
+                var frm = document.forms.input_form;
+                var input_number = '';
+                input_number ="?"+"n="+encodeURIComponent(frm.n.value);
+                if (input_number === "  ") return false
+                var my_JSON_object = {};
+                var http_request = new XMLHttpRequest();
+                http_request.open("GET" , tasks_url+input_number,true)
+                http_request.onreadystatechange = function () {
+                    var done = 4, ok = 200;
+
+                    if (http_request.readyState === done &&
+                        http_request.status === ok) {
+                     my_JSON_object =
+                         JSON.parse(http_request.responseText);
+                     show_result(my_JSON_object);
+                    }
+
+                };
+                http_request.send(null);
+                return false
+            }
+            
+            function show_result(data) {
+                number.innerHTML = "Number:"+ data["value"]
+                sqr_num.innerHTML = "Square:"+data["value1"]  
+            }
+        </script>
+    </head>
+
+    <body>
+        <form name = "input_form" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+            <label for="Input:">Enter:</label>
+            <input type="text" name="n" id="n">
+            <input type="submit" name="commit" value="Result"  onclick="return send_query();" data-disable-with="result">
+        </form>
+        <table border="0" width="50%">
+            <tr>
+                <td id = "number"> </td>
+            </tr>
+            <tr>
+                <td id="sqr_num"></td>
+            </tr>
+        </table>
+    </body>
+</html>

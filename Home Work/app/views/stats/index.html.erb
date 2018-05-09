@@ -1,0 +1,30 @@
+<h1><%= t('common.statistics') %></h1>
+
+<div class="panel panel-info">
+  <div class="panel-heading"><strong><%= t('.filtering_options') %></strong></div>
+  <div class="panel-body">
+    
+<%= form_with url: stats_filter_path, method: :post, data: { type: :json }, class: 'form-inline', id: 'form_filter' do |f| %>
+  <%= f.text_field :date1, class: "dates form-control", value: "01-07-2017", placeholder: t(".start_date") %>
+  <%= f.text_field :date2, class: "dates form-control", value: "01-01-2018", placeholder: t(".end_date") %>
+
+  <%= f.select :cat_id, class: "form-control" do %>
+    <%= content_tag(:option, t('.any_category'), value: 0) %>
+    <% @cats.each do |c| %>
+      <%= content_tag(:option, c.name, value: c.id) %>
+    <% end %>
+  <% end %>
+
+  <%= f.text_field :name, class: "form-control", value: "", placeholder: t("common.action_name") %>
+  <%= f.text_field :username, class: "form-control", value: "", placeholder: t("common.user_name") %>
+  <%= f.submit t('.filter'), class: "btn btn-primary" %>
+<% end %>
+
+  </div>
+</div>
+
+<canvas id="chart"></canvas>
+
+<table id="data_table"></table>
+
+<%= javascript_include_tag 'stats' %>

@@ -1,0 +1,13 @@
+<%= form_tag url_for(controller: :sessions, action: :create), method: 'post' do %>
+
+    <%= label_tag 'Name' %>
+    <%= text_field_tag :name %>
+    <br>
+    <%= label_tag 'password' %>
+    <%= password_field_tag 'password' %>
+
+    <%= submit_tag 'Логин' %>
+<% end %>
+<%= form_tag url_for(controller: 'users', action: 'new'), :method => 'get' do %>
+    <%= submit_tag 'Создать пользователя' %>
+<% end %>

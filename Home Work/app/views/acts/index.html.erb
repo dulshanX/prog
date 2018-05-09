@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <%= t('.actions_list') %>
+
+  <% if user_signed_in? %>
+    <%= link_to t('common.new_action'), new_act_path, class: 'btn btn-primary pull-right' %>
+  <% end %>    
+</h1>
+
+<div class="jumbotron" style="margin-bottom: 0;">
+  <% @acts.each do |act| %>
+    <%= act.user.name %>
+    <p>
+      <strong style="font-size: 120%;"><%= link_to act.name, act, class: 'text-capitalize' %></strong>
+    </p>  
+    <p style="font-size: 110%;">
+      <%= act.desc %>
+    </p>
+    <span class="label label-default"><%= act.date %></span>
+    <span class="label label-primary"><%= act.value %> <%= t('common.hours') %></span>
+    <span class="label label-default"><%= act.category.name %></span>
+    <%= link_to t('common.show'), act, class: 'btn btn-default pull-right' %>
+
+    <% if act != @acts.last %>
+      <hr>
+    <% end %>
+  <% end %>
+</div>
+
+<%= will_paginate @books, :style => 'margin-top: 0;', :class => 'pagination' %>

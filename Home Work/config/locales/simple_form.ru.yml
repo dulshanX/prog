@@ -1,0 +1,41 @@
+ru:
+  date:
+    order: [!ruby/symbol year, !ruby/symbol month, !ruby/symbol day]
+    formats:
+      default: "%Y-%M-%d"
+      short: "%d %b"
+      long: "%Y, %M, %d, %B"
+    day_names: ["Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"]
+    abbr_day_names: ["Пон", "Вт", "Ср", "Чт", "Пт", "Сб", "Вск"]
+    month_names: ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"]
+    abbr_month_names: ["Янв", "Фев", "Март", "Апр", "Май", "Июнь", "Июль", "Авг", "Сен", "Окт", "Ноя", "Дек"]
+  simple_form:
+    "yes": 'Да'
+    "no": 'Нет'
+    required:
+      text: 'обязательно к заполнению'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Возникли следующие проблемы:"
+    # Examples
+    # labels:
+    #   defaults:
+    #     password: 'Password'
+    #   user:
+    #     new:
+    #       email: 'E-mail to sign in.'
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'

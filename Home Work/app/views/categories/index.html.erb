@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1><%= t('common.categories') %></h1>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t('common.name') %></th>
+      <th><%= t('common.description') %></th>
+      <% if current_user.try(:admin?) %>
+        <th colspan="2"></th>
+      <% end %>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= category.desc %></td>
+        <% if current_user.try(:admin?) %>
+          <td><%= link_to t('common.edit'), edit_category_path(category), class: 'btn btn-default' %></td>
+          <td><%= link_to t('common.delete'), category, class: 'btn btn-default', method: :delete, data: { confirm: t('common.are_you_sure?') } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  </div>
+</div>
+
+<% if current_user.try(:admin?) %>
+  <%= link_to t('common.new_category'), new_category_path, class: 'btn btn-primary' %>
+<% end %>

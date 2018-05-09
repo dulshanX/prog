@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2017-12-12
+  value: 7
+  name: Action One
+  desc: first added action
+  category: one
+  user: one
+
+two:
+  date: 2017-12-01
+  value: 3.52
+  name: Action Two
+  desc: second added action
+  category: two
+  user: two
+
+three:
+  date: 2017-11-01
+  value: 4.529
+  name: Action Three
+  desc: third added action
+  category: one
+  user: one
+
+four:
+  date: 2017-10-01
+  value: 4.525
+  name: Action Four
+  desc: fourth added action
+  category: two
+  user: one
+
+five:
+  date: 2017-09-01
+  value: 4.522
+  name: Action Five
+  desc: fifth added action
+  category: three
+  user: one
+
+six:
+  date: 2017-08-01
+  value: 0
+  name: Action Five
+  desc: fifth added action
+  category: two
+  user: two

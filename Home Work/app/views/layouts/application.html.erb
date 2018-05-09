@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Activities</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  </head>
+
+<body>  
+  <nav class="navbar navbar-default monte">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'ActionDiary', acts_path, class: 'navbar-brand' %>
+        <form class="navbar-form navbar-left">
+          <select class="form-control" id="lang-select">
+            <option value="en">Eng</option>
+            <option value="ru">Rus</option>
+          </select>
+        </form>
+      </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-navbar">
+        <ul class="nav navbar-nav">
+          <li 
+            <%= (current_page?(:controller => '/acts', :action => 'index') || (current_page?(root_path))) ? 'class=active' : '' %>
+          >
+            <%= link_to t('common.actions'), acts_path %>
+          </li>
+          <li
+            <%= current_page?(:controller => '/stats', :action => 'index') ? 'class=active' : '' %>
+          >
+            <%= link_to t('common.statistics'), stats_path %>
+          </li>
+          <li
+            <%= current_page?(:controller => '/categories', :action => 'index') ? 'class=active' : '' %>
+          >
+            <%= link_to t('common.categories'), categories_path %>              
+          </li>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+
+          <% if !user_signed_in? %>
+            <li>
+              <%= link_to new_user_session_path do %>
+                <span class="glyphicon glyphicon-log-in"></span>
+                <span><%= t('common.login') %></span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_user_registration_path do %>
+                <span class="glyphicon glyphicon-edit"></span>
+                <span><%= t('common.signup') %></span>
+              <% end %>
+            </li>
+          <% else %>
+            <li class="navbar-text">
+              <span <%= current_user.try(:admin?) ? "class=text-primary" : '' %> >
+                <span class="glyphicon glyphicon-user"></span>
+                <span><%= current_user.name %></span>
+              </span>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path, method: :delete do %>
+                <span class="glyphicon glyphicon-log-out"></span>
+                <span><%= t('common.logout') %></span>
+              <% end %>
+            </li>
+          <% end %>
+
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>  
+
+</body>
+</html>

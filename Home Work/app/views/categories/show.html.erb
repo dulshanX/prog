@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+
+  <div class="panel-heading">
+    <strong style='font-size: 1.1rem;'><%= @category.name %></strong>
+  </div>
+
+  <div class="panel-body">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <%= @category.desc %>
+    </p>
+
+  </div>
+
+  <div class="panel-footer">
+
+    <% if current_user.try(:admin?) %>    
+      <%= link_to t('common.edit'), edit_category_path(@category), class: 'btn btn-default' %>
+      <%= link_to t('common.delete'), @category, class: 'btn btn-default', method: :delete, data: { confirm: t('common.are_you_sure?') } %>
+    <% end %>
+
+    <%= link_to t('common.cancel'), categories_path, class: 'btn btn-default' %>
+
+  </div>
+</div>

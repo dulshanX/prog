@@ -1,0 +1,9 @@
+<%= form_tag url_for(controller: 'lab', action: 'output'), :method => 'get' do %>
+    <%= label_tag :text, 'Введите число' %>
+    <%= text_field_tag(:v1) %>
+    <br>
+    <%= submit_tag 'Рассчитать' %>
+<% end %>
+<%= form_tag url_for(controller: 'sessions', action: 'logout'), :method => 'get' do %>
+    <%= submit_tag 'Выйти' %>
+<% end %>

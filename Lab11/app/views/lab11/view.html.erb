@@ -1,0 +1,23 @@
+<h1>Результат</h1>
+Введённое значение:
+<%= @a %>
+<% if @result == [] -%>
+    <p><%= "Некорректные данные" %></p>
+<% else -%>
+    <table border="1">
+      <tr>
+        <th>Число</th>
+        <th>Квадрат числа</th>
+      </tr>
+      <% @result.each do |num| %>
+          <tr>
+            <td><%= Math.sqrt(num).to_i %></td>
+            <td><%= num %></td>
+          </tr>
+      <% end %>
+    </table> <br/>
+<% end %>
+<%= form_tag('/lab11/result_in_xml', :method => 'get') do %>
+    <%= submit_tag("Вывести в формате .xml") %>
+<% end %>
+<%= link_to "Ввести другое число", :lab11_input %>

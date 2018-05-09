@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Category One
+  desc: first added category
+
+two:
+  name: Category Two
+  desc: second added category
+
+three:
+  name: Category Three
+  desc: third added category

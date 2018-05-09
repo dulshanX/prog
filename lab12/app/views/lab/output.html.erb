@@ -1,0 +1,19 @@
+Результат:
+<table border="1">
+  <tr>
+    <th>Число</th>
+    <th>Квадрат числа</th>
+  </tr>
+  <% @number.each do |num| %>
+      <tr>
+        <th><%= num %></th>
+        <th><%= num**2 %></th>
+      </tr>
+  <% end %>
+</table>
+<br>
+
+<%= link_to 'Рассчитать заного', :lab_input %>
+<%= form_tag url_for(controller: 'sessions', action: 'logout'), :method => 'get' do %>
+    <%= submit_tag 'Выйти' %>
+<% end %>

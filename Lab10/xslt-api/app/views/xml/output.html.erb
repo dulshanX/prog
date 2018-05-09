@@ -1,0 +1,44 @@
+<head>
+  <style type="text/css">
+    table {
+      font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+      text-align: center;
+      border-collapse: separate;
+      border-spacing: 5px;
+      background: #ECE9E0;
+      color: #656665;
+      border: 16px solid #ECE9E0;
+      border-radius: 20px;
+      width:450px;
+    }
+    th {
+      font-size: 18px;
+      padding: 10px;
+    }
+    td {
+      background: #ECE9E0;
+      padding: 10px;
+    }
+    .p {
+      font-family: "Times new roman";
+      font-size: 18px;
+      padding: 10px;
+      color: #656665;
+    }
+    .p2 {
+      font-family: "Times new roman";
+      font-size: 36px;
+      padding: 10px;
+      color: #656665;
+    }
+
+
+
+  </style>
+</head>
+
+<h1 class = 'p2' align="center">Result</h1>
+<%= render @result %>
+
+
+<h1 class = 'p2' align = "center"><%= link_to "Go back", :xml_input %></h1>

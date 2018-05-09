@@ -1,0 +1,8 @@
+<head>
+</head>
+<h1 class = "p2" align="center">LR 8</h1>
+<%= form_tag(controller: :xml, action: :output, :method => "get") do %>
+    <div align="center" class = "p"><%= label_tag("input value (>11):") %>
+      <%= text_field_tag :v, nil, min: 11 %> <br /><br /><br />
+      <%= submit_tag"Result", class:"button" %></div>
+<%end %>

@@ -1,0 +1,103 @@
+ru:
+  activerecord:
+    models:
+      act: 'Активность'
+      category: 'Категория'
+      user: 'Пользователь'
+    attributes:
+      act:
+        date: 'Дата'
+        value: 'Значение'
+        name: 'Название'
+        desc: 'Описание'
+        category: 'Категория'
+      category:
+        name: 'Название'
+        desc: 'Описание'
+      user:
+        name: 'Имя'
+        email: 'E-mail'
+        password: 'Пароль'
+        remember_me: 'Запомнить меня'
+        password_confirmation: 'Подтверждение пароля'
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              blank: "электронный адрес не может быть пустым"
+              invalid: "неправильный формат электронного адреса"
+            password:
+              blank: "пароль не может быть пустым"
+              too_short: "пароль слишком короткий"
+            password_confirmation:
+              confirmation: "пароли не совпадают"
+            name:
+              too_short: "имя слишком короткое"
+              too_long: "имя слишком длинное"
+        act:
+          attributes:
+            name:
+              too_short: "название слишком короткое"
+              too_long: "название слишком длинное"              
+              blank: "название не должно быть пустым"
+            category:
+              required: "необходимо указать категорию"
+            value:
+              not_a_number: "необходимо указать число"
+              greater_than: "число должно быть больше 0"
+              less_than_or_equal_to: "число должно быть не больше 24"
+            user:
+              required: "необходимо указать пользователя"
+        category:
+          attributes:
+            name:
+              too_short: "название слишком короткое"
+              too_long: "название слишком длинное"              
+              blank: "название не должно быть пустым"
+  devise:
+    sessions:
+      new:
+        login: "Авторизация"
+    registrations:
+      new:
+        characters_minimum: "символов минимум"
+        signup: "Зарегистрироваться"
+  common:
+    actions: "Активности"
+    action_name: "Название активности"
+    statistics: "Статистика"
+    category: "Категория"
+    categories: "Категории"
+    login: "Войти"
+    logout: "Выйти"
+    signup: "Регистрация"
+    hours: "часов"
+    show: "Показать"
+    user: "Пользователь"
+    user_name: "Имя пользователя"
+    value: "Значение"
+    name: "Название"
+    description: "Описание"
+    edit: "Редактировать"
+    delete: "Удалить"
+    new_action: "Новая Активность"
+    new_category: "Новая Категория"
+    are_you_sure?: "Вы уверены?"
+    save: "Сохранить"
+    cancel: "Отмена"
+  acts:
+    index:
+      actions_list: "Список активностей"
+    edit:
+      edit_action: "Редактирование Активности"
+  categories:
+    edit:
+      edit_category: "Редактирование Категории"
+  stats:
+    index:
+      filtering_options: "Параметры Фильтрации"
+      any_category: "<любая категория>"
+      start_date: "Дата 1"
+      end_date: "Дата 2"
+      filter: "Фильтровать"
